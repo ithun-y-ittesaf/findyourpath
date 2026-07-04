@@ -7,3 +7,5 @@ __pycache__/
 
 # Generated cache
 cache/
+
+*.png
