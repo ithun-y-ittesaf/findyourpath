@@ -10,19 +10,19 @@ def bfs(G, start, goal, get_neighbors):
 
     frontier = deque([start])
     came_from = {start: None}
-    nodes_expanded = 0
+    expansion_order = []
 
     while frontier:
         current = frontier.popleft()
-        nodes_expanded += 1
+        expansion_order.append(current)
 
         if current == goal:
-            return reconstruct_path(came_from, start, goal), nodes_expanded
+            return reconstruct_path(came_from, start, goal), len(expansion_order), expansion_order
         
         for neighbor, _weight in get_neighbors(G, current):
             if neighbor not in came_from:
                 came_from[neighbor] = current
                 frontier.append(neighbor)
 
-    return None, nodes_expanded
+    return None, len(expansion_order), expansion_order
 
