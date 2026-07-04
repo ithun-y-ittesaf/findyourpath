@@ -16,9 +16,13 @@ def haversine(G, node1, node2):
     R = 6371000 #Earth Radius in Meters
     return R*c
 
-def astar(G, start, goal, get_neighbors):
+def astar(G, start, goal, get_neighbors, lambda_=1.0):
     """
     Like Dijkstra, but guided towards goal using a heuristic.
+    lambda_ scales the heuristic term (priority = cost_so_far + lambda_ * heuristic):
+        lambda_ = 1   -> standard, admissible A*
+        lambda_ = 0   -> heuristic drops out, equivalent to Dijkstra
+        lambda_ > 1   -> greedier, faster but no longer guaranteed optimal
     Returns (path as list of node ids, nodes_expanded count, expansion_order) or,
         (None, count, expansion_order) if no path found.
     """
@@ -38,7 +42,7 @@ def astar(G, start, goal, get_neighbors):
             new_dist = cost_so_far[current] + weight
             if neighbor not in cost_so_far or new_dist < cost_so_far[neighbor]:
                 cost_so_far[neighbor] = new_dist
-                priority = new_dist + haversine(G, neighbor, goal)
+                priority = new_dist + lambda_ * haversine(G, neighbor, goal)
                 came_from[neighbor] = current
                 heapq.heappush(frontier, (priority, neighbor))
 
