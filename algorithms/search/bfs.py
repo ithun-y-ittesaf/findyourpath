@@ -1,4 +1,5 @@
 from collections import deque
+from algorithms.reconstruct_path import reconstruct_path
 
 def bfs(G, start, goal, get_neighbors):
     """
@@ -25,9 +26,3 @@ def bfs(G, start, goal, get_neighbors):
 
     return None, nodes_expanded
 
-def reconstruct_path(came_from, start, goal):
-    path = [goal]
-    while path[-1] != start:
-        path.append(came_from[path[-1]])
-    path.reverse()
-    return path

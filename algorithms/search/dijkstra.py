@@ -1,5 +1,5 @@
 import heapq
-from algorithms.search.bfs import reconstruct_path
+from algorithms.reconstruct_path import reconstruct_path
 
 def dijkstra (G, start, goal, get_neighbors):
     # We all know what dijkstra does
