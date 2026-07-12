@@ -1,0 +1,35 @@
+{
+  "num_nodes": 23644,
+  "num_edges": 58856,
+  "hard_pair": {
+    "start": 60917111,
+    "goal": 13982963681,
+    "hop_distance": 102,
+    "bfs_nodes_expanded": 21129,
+    "dijkstra_nodes_expanded": 17567,
+    "astar_nodes_expanded": 7097,
+    "bfs_path_length_m": 10637.46627277591,
+    "dijkstra_path_length_m": 10382.83438009212,
+    "astar_path_length_m": 10382.83438009212
+  },
+  "rl_training": {
+    "start": 10232285720,
+    "goal": 13982963681,
+    "hop_distance": 14,
+    "episodes": 1000,
+    "max_steps": 50,
+    "final_200ep_avg_reward": 69.8,
+    "final_200ep_success_rate_pct": 95.5,
+    "first_200ep_success_rate_pct": 8.0
+  },
+  "astar_vs_rl": {
+    "start": 10232285720,
+    "goal": 13982963681,
+    "astar_hops": 19,
+    "astar_length_m": 714.8526931400875,
+    "astar_nodes_expanded": 26,
+    "rl_success": true,
+    "rl_hops": 16,
+    "rl_length_m": 1100.84794941728
+  }
+}
